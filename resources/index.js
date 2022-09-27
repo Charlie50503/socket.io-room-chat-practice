@@ -2,17 +2,19 @@ const socket = io("http://localhost:3000")
 console.log("socket",socket)
 const messageContainer = document.getElementById('message-bar');
 const messageInput = document.getElementById("message-input")
-const userName = document.getElementById("USER_NAME")
+const userNameLabel = document.getElementById("USER_NAME")
+const userName = localStorage.getItem('userName');
 // const userName = document.getElementById("user-name")
 
 function appendMessage({user,message}) {
   const messageElement = document.createElement('li');
   messageElement.innerHTML = /*html*/`
-    <div>
-      <p>user: ${user}</p>
-      <p>message: ${message}</p>
+    <div class="chat-item-container">
+      <span font="noto" class="fw-bold">${user}</span>:
+      <span font="noto">${message}</span>
     </div>
   `
+  messageElement.classList.add("chat-item");
   messageContainer.append(messageElement);
 }
 
@@ -27,7 +29,7 @@ function sendMessage(){
   }
 
   const data = {
-    user:userName.value,
+    user:userName,
     message:messageInput.value
   }
   socket.emit("chat",data)
@@ -49,5 +51,5 @@ function init(){
 }
 
 function setUserName(){
-  userName.innerText = localStorage.getItem('userName');
+  userNameLabel.innerText = userName
 }
