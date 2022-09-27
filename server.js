@@ -13,9 +13,9 @@ io.on("connection",socket => {
   socket.on("join",()=>{
     socket.broadcast.emit("使用者進入聊天室")
   })
-  socket.on("message",(message)=>{
-    console.log("get message",message);
-    socket.broadcast.emit("showMessage",message)
+  socket.on("chat",({user,message})=>{
+    console.log("get message",{user,message});
+    socket.broadcast.emit("showMessage",{user,message})
   })
   socket.on("disconnect",()=>{
     socket.broadcast.emit("使用者已經退出")
