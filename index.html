@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .footer {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+  }
+  .message-input {
+    width: 80vw;
+    padding: 16px;
+  }
+
+  .send {
+    width: 20vw;
+    padding: 16px;
+  }
+
+</style>
+<body>
+  <ul id="message-bar"></ul>
+  <div class="footer">
+
+    <input id="message-input" class="message-input" type="text" placeholder="message"><button class="send" type="button" onclick="sendMessage()">send</button>
+  </div>
+  <script src="./resources/socket.io.js"></script>
+  <script src="./resources/all.js"></script>
+  <script>
+   
+
+
+  </script>
+</body>
+</html>
