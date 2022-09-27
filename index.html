@@ -7,44 +7,23 @@
   <title>Document</title>
 </head>
 <style>
-  .footer {
-    /* display: flex; */
-    /* position: fixed; */
-    background: rgba(108, 98, 98, 0.526);
-    /* bottom: 0; */
-  }
-  .message-input {
-    width: 80vw;
-    padding: 16px;
-  }
 
-  .send {
-    width: 20vw;
-    padding: 16px;
-  }
 
 </style>
 <body onload="init()">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./css/page/index.css">
   <div class="container">
-    <ul id="message-bar"></ul>
+    <ul id="message-bar" class="list-unstyled"></ul>
     <div class="footer fixed-bottom d-flex flex-column w-100 p-3">
-      <p class="">USER NAME:
-        <span id="USER_NAME" class="" id="basic-addon1"></span>
+      <p class="fw-bold" font="noto">USER NAME:
+        <span id="USER_NAME" class="text-primary" id="basic-addon1" font="noto"></span>
       </p>
       <div class="input-group mb-3 w-100">
-        <input type="text" class="form-control" placeholder="message..." aria-label="Username" aria-describedby="basic-addon1">
-        <button class="btn btn-warning" type="button" id="button-addon2" onclick="sendMessage()">send</button>
+        <input font="noto" id="message-input" type="text" class="form-control" placeholder="message..." aria-label="Username" aria-describedby="basic-addon1">
+        <button font="noto" class="btn btn-warning" type="button" id="button-addon2" onclick="sendMessage()">send</button>
       </div>
-      <!-- <ul>
-        <li>
-          <input id="user-name" class="message-input" type="text" placeholder="user name">
-        </li>
-        <li>
-          <input id="message-input" class="message-input" type="text" placeholder="message"><button class="send" type="button" onclick="sendMessage()">send</button>
-        </li>
-      </ul> -->
     </div>
   </div>
  
