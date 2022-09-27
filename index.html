@@ -8,9 +8,10 @@
 </head>
 <style>
   .footer {
-    display: flex;
-    position: fixed;
-    bottom: 0;
+    /* display: flex; */
+    /* position: fixed; */
+    background: rgba(108, 98, 98, 0.526);
+    /* bottom: 0; */
   }
   .message-input {
     width: 80vw;
@@ -23,18 +24,31 @@
   }
 
 </style>
-<body>
-  <ul id="message-bar"></ul>
-  <div class="footer">
-
-    <input id="message-input" class="message-input" type="text" placeholder="message"><button class="send" type="button" onclick="sendMessage()">send</button>
+<body onload="init()">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+  <div class="container">
+    <ul id="message-bar"></ul>
+    <div class="footer fixed-bottom d-flex flex-column w-100 p-3">
+      <p class="">USER NAME:
+        <span id="USER_NAME" class="" id="basic-addon1"></span>
+      </p>
+      <div class="input-group mb-3 w-100">
+        <input type="text" class="form-control" placeholder="message..." aria-label="Username" aria-describedby="basic-addon1">
+        <button class="btn btn-warning" type="button" id="button-addon2" onclick="sendMessage()">send</button>
+      </div>
+      <!-- <ul>
+        <li>
+          <input id="user-name" class="message-input" type="text" placeholder="user name">
+        </li>
+        <li>
+          <input id="message-input" class="message-input" type="text" placeholder="message"><button class="send" type="button" onclick="sendMessage()">send</button>
+        </li>
+      </ul> -->
+    </div>
   </div>
+ 
   <script src="./resources/socket.io.js"></script>
-  <script src="./resources/all.js"></script>
-  <script>
-   
-
-
-  </script>
+  <script src="./resources/index.js"></script>
 </body>
 </html>
