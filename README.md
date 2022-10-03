@@ -1,3 +1,4 @@
 # socket.io-room-chat-practice
 
-[](http://g.recordit.co/n7nYFtdAwS.gif)
+
+<img src="http://g.recordit.co/n7nYFtdAwS.gif" alt="My Project GIF" width="500" height="600">
