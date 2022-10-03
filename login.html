@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
+  <body onload="init()" class="position-relative">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -15,19 +15,37 @@
     <link rel="stylesheet" href="./css/page/login.css">
     <div class="container">
       <h1 class="mt-4 mb-4" font="noto">Login Page</h1>
-      <div>
-        <div class="input-group mb-3">
-          <input
-            type="text"
-            id="LOGIN_USER_INPUT"
-            class="form-control"
-            placeholder="user name"
-            aria-label="user name"
-            aria-describedby="button-addon2"
-            font="noto"
-          />
-          <button
-            class="btn btn-outline-secondary"
+      <div class="login-container">
+        <ul class="list-unstyled mb-4">
+          <li>
+            <h3 class="mb-1 h5" font="noto">Room name</h3>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                id="ROOM_NAME_INPUT"
+                class="form-control"
+                placeholder="room name"
+                font="noto"
+              />
+            </div>
+          </li>
+          <li>
+            <h3 class="mb-1 h5" font="noto">User name</h3>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                id="LOGIN_USER_INPUT"
+                class="form-control"
+                placeholder="user name"
+                font="noto"
+              />
+            </div>
+          </li>
+        </ul>
+        <div class="row">
+          <div class="col-12">
+            <button
+            class="btn btn-outline-primary w-100 py-3"
             type="button"
             id="button-addon2"
             font="noto"
@@ -35,10 +53,24 @@
           >
             Login
           </button>
+          </div>
         </div>
       </div>
     </div>
-
+    
+    <div class="position-absolute w-100 d-flex justify-content-center top-0">
+      <div class="" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <strong class="me-auto">提醒</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body" id="ALERT_TOAST_BODY">
+            
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="./utils/utils.js"></script>
     <script src="./resources/login.js"></script>
   </body>
