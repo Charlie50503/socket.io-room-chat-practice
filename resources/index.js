@@ -4,23 +4,55 @@ const messageContainer = document.getElementById('message-bar');
 const messageInput = document.getElementById("message-input")
 const userNameLabel = document.getElementById("USER_NAME")
 const userName = localStorage.getItem('userName');
-// const userName = document.getElementById("user-name")
+const roomName = localStorage.getItem('roomName');
 
-function appendMessage({user,message}) {
+function joinRoomMessage(data) {
   const messageElement = document.createElement('li');
+  if(data.userName!==userName){
+    messageElement.classList.add('chat-item-another')
+  }else{
+    messageElement.classList.add("chat-item");
+  }
   messageElement.innerHTML = /*html*/`
     <div class="chat-item-container">
-      <span font="noto" class="fw-bold">${user}</span>:
-      <span font="noto">${message}</span>
+      <span font="noto" class="fw-bold">${data.message}</span>
     </div>
   `
-  messageElement.classList.add("chat-item");
+  
   messageContainer.append(messageElement);
 }
 
-socket.on("showMessage",({user,message})=>{
-  appendMessage({user,message})
+function appendMessage(data) {
+  const messageElement = document.createElement('li');
+  if(data.userName!==userName){
+    messageElement.classList.add('chat-item-another')
+  }else{
+    messageElement.classList.add("chat-item");
+  }
+  messageElement.innerHTML = /*html*/`
+    <div class="chat-item-container">
+      <span font="noto" class="fw-bold">${data.userName}</span>:
+      <span font="noto">${data.message}</span>
+    </div>
+  `
+  
+  messageContainer.append(messageElement);
+}
+
+socket.on("showMessage",(data)=>{
+  appendMessage(data)
 })
+
+socket.on("joinRoomMessage",(data)=>{
+  joinRoomMessage(data)
+})
+
+function joinRoom(){
+  const data = {
+    userName:userName,
+  }
+  socket.emit("join",data)
+}
 
 function sendMessage(){
   if(!checkMessageInput()) {
@@ -29,7 +61,7 @@ function sendMessage(){
   }
 
   const data = {
-    user:userName,
+    userName:userName,
     message:messageInput.value
   }
   socket.emit("chat",data)
@@ -48,6 +80,7 @@ function checkMessageInput(){
 
 function init(){
   setUserName()
+  joinRoom()
 }
 
 function setUserName(){

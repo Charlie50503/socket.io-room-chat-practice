@@ -10,12 +10,13 @@ const io = require("socket.io")(server,{
 
 io.on("connection",socket => {
   console.log("connection ----");
-  socket.on("join",()=>{
-    socket.broadcast.emit("使用者進入聊天室")
+  socket.on("join",(data)=>{
+    console.log("join",data);
+    socket.broadcast.emit("joinRoomMessage",{userName:data.userName,message:`${data.userName} 使用者進入聊天室`})
   })
-  socket.on("chat",({user,message})=>{
-    console.log("get message",{user,message});
-    socket.broadcast.emit("showMessage",{user,message})
+  socket.on("chat",({userName,message})=>{
+    console.log("get message",{userName,message});
+    socket.broadcast.emit("showMessage",{userName,message})
   })
   socket.on("disconnect",()=>{
     socket.broadcast.emit("使用者已經退出")

@@ -15,10 +15,10 @@
 
 }
 
-.chat-item:nth-child(2n) {
+.chat-item-another {
   text-align: end;
 }
 
-.chat-item:nth-child(2n) .chat-item-container {
+.chat-item-another .chat-item-container {
   background-color: antiquewhite;
 }

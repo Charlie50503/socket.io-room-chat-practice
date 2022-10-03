@@ -16,6 +16,7 @@ function login(){
   
 
   localStorage.setItem('userName', loginUserInput.value);
+  localStorage.setItem('roomName', roomNameInput.value);
   window.location.href = "index.html";
 }
 
