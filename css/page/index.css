@@ -5,7 +5,7 @@
 }
 
 .chat-item {
-  padding: 8px;
+  padding: 8px 16px;
 }
 
 .chat-item-container {
@@ -16,6 +16,7 @@
 }
 
 .chat-item-another {
+  padding: 8px 16px;
   text-align: end;
 }
 
