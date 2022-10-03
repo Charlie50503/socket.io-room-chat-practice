@@ -3,7 +3,7 @@
 ## DEMO
 <img src="http://g.recordit.co/n7nYFtdAwS.gif" alt="My Project GIF">
 
-## RUN
+## RUN PROJECT
 1.`npm install`
 
 2.`npm run dev`
